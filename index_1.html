@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduShiksha - Modern STEM Learning Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>EduShiksha</h1>
+                    <span class="tagline">Modern STEM Learning</span>
+                </div>
+                <nav class="nav">
+                    <button class="nav-btn active" data-section="home">Home</button>
+                    <button class="nav-btn" data-section="login">Login</button>
+                    <button class="nav-btn hidden" data-section="dashboard">Dashboard</button>
+                    <button class="nav-btn hidden" data-section="learn">Learn</button>
+                    <button class="nav-btn hidden" data-section="quiz">Quiz</button>
+                    <button class="nav-btn hidden" data-section="code">Code</button>
+                    <button class="nav-btn hidden" data-section="progress">Progress</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="container">
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <h1>Welcome to EduShiksha</h1>
+                        <h2>Modern STEM Learning Platform</h2>
+                        <p class="hero-description">Discover the joy of Science, Technology, Engineering, and Mathematics through interactive learning designed for students grades 6-12. Join thousands of students on their educational journey!</p>
+                        
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">10K+</span>
+                                <span class="stat-label">Students</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Lessons</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">4</span>
+                                <span class="stat-label">STEM Subjects</span>
+                            </div>
+                        </div>
+
+                        <div class="cta-section">
+                            <button class="btn btn--primary btn--lg" onclick="showSection('login')">Start Learning Today</button>
+                            <button class="btn btn--outline btn--lg" onclick="showSection('login')">Sign Up Free</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-section">
+                    <h3>Why Choose EduShiksha?</h3>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🧬</div>
+                            <h4>Interactive Science</h4>
+                            <p>Explore physics, chemistry, and biology with hands-on experiments and real-world applications from Odisha.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💻</div>
+                            <h4>Modern Technology</h4>
+                            <p>Learn programming, AI, and computer science through engaging coding challenges and projects.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚙️</div>
+                            <h4>Creative Engineering</h4>
+                            <p>Develop problem-solving skills through design challenges and engineering principles.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📐</div>
+                            <h4>Applied Mathematics</h4>
+                            <p>Master mathematical concepts with practical examples and local cultural context.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Section -->
+        <section id="login" class="section">
+            <div class="container">
+                <div class="auth-container">
+                    <div class="auth-card">
+                        <div class="auth-header">
+                            <h2 id="authTitle">Welcome Back</h2>
+                            <p id="authSubtitle">Sign in to continue your STEM learning journey</p>
+                        </div>
+
+                        <div class="auth-form">
+                            <div class="form-group">
+                                <label for="authEmail" class="form-label">Email Address</label>
+                                <input type="email" id="authEmail" class="form-control" placeholder="your.email@example.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="authPassword" class="form-label">Password</label>
+                                <input type="password" id="authPassword" class="form-control" placeholder="Enter your password" required>
+                            </div>
+
+                            <div class="form-group" id="gradeGroup" style="display: none;">
+                                <label for="studentGrade" class="form-label">Select Your Grade (6-12)</label>
+                                <select id="studentGrade" class="form-control">
+                                    <option value="">Choose your grade...</option>
+                                    <option value="6">Grade 6</option>
+                                    <option value="7">Grade 7</option>
+                                    <option value="8">Grade 8</option>
+                                    <option value="9">Grade 9</option>
+                                    <option value="10">Grade 10</option>
+                                    <option value="11">Grade 11</option>
+                                    <option value="12">Grade 12</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" id="roleGroup" style="display: none;">
+                                <label class="form-label">I am a:</label>
+                                <div class="role-buttons">
+                                    <button type="button" class="role-btn" data-role="student">
+                                        <span class="role-icon">🎓</span>
+                                        <span>Student</span>
+                                    </button>
+                                    <button type="button" class="role-btn" data-role="teacher">
+                                        <span class="role-icon">👨‍🏫</span>
+                                        <span>Teacher</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button class="btn btn--primary btn--full-width" id="authSubmit" onclick="handleAuth()">Sign In</button>
+
+                            <div class="auth-switch">
+                                <p id="authSwitchText">Don't have an account? <button type="button" class="link-btn" onclick="toggleAuthMode()">Sign up here</button></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section">
+            <div class="container">
+                <div class="welcome-section">
+                    <div class="welcome-content">
+                        <h2 id="welcomeMessage">Welcome to Your Learning Journey</h2>
+                        <p>Continue your STEM education with personalized content designed for your grade level.</p>
+                    </div>
+                    
+                    <div class="points-display">
+                        <div class="points-card">
+                            <div class="points-icon">⭐</div>
+                            <div class="points-info">
+                                <span class="points-label">Learning Points</span>
+                                <span class="points-value" id="totalPoints">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subjects-grid">
+                    <div class="subject-card" onclick="selectSubject('science')">
+                        <div class="subject-icon">🧪</div>
+                        <h3>Science</h3>
+                        <p>Physics, Chemistry, Biology with Odisha context</p>
+                        <div class="subject-stats">
+                            <span id="sciencePoints">0 points earned</span>
+                        </div>
+                    </div>
+                    <div class="subject-card" onclick="selectSubject('technology')">
+                        <div class="subject-icon">💻</div>
+                        <h3>Technology</h3>
+                        <p>Programming, AI, Computer Science</p>
+                        <div class="subject-stats">
+                            <span id="technologyPoints">0 points earned</span>
+                        </div>
+                    </div>
+                    <div class="subject-card" onclick="selectSubject('engineering')">
+                        <div class="subject-icon">⚙️</div>
+                        <h3>Engineering</h3>
+                        <p>Problem-solving, Design challenges</p>
+                        <div class="subject-stats">
+                            <span id="engineeringPoints">0 points earned</span>
+                        </div>
+                    </div>
+                    <div class="subject-card" onclick="selectSubject('mathematics')">
+                        <div class="subject-icon">📐</div>
+                        <h3>Mathematics</h3>
+                        <p>Arithmetic, Algebra with local examples</p>
+                        <div class="subject-stats">
+                            <span id="mathematicsPoints">0 points earned</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learn Section -->
+        <section id="learn" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="learnTitle">Educational Videos</h2>
+                    <p>Engage with curated video content for your selected subject and grade level.</p>
+                </div>
+
+                <div class="videos-grid" id="videosContainer">
+                    <div class="content-message">
+                        <h3>Select a Subject</h3>
+                        <p>Choose a subject from your dashboard to access educational videos.</p>
+                        <button class="btn btn--outline" onclick="showSection('dashboard')">Go to Dashboard</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Interactive Assessments</h2>
+                    <p>Test your understanding and earn 10 points for each correct answer!</p>
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-card">
+                        <div class="quiz-header">
+                            <h3 id="quizTitle">Select a subject to begin assessment</h3>
+                            <div class="quiz-progress">
+                                <span id="questionCounter">Question 1 of 5</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-content" id="quizContent">
+                            <div class="grade-selection-message">
+                                <p>Please select a subject from your dashboard to unlock assessments and earn points!</p>
+                                <button class="btn btn--primary" onclick="showSection('dashboard')">Go to Dashboard</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-actions" id="quizActions" style="display: none;">
+                            <button class="btn btn--outline" id="prevBtn" onclick="prevQuestion()">Previous</button>
+                            <button class="btn btn--primary" id="nextBtn" onclick="nextQuestion()">Next</button>
+                            <button class="btn btn--primary" id="submitBtn" onclick="submitQuiz()" style="display: none;">Submit Assessment</button>
+                        </div>
+
+                        <div class="quiz-results" id="quizResults" style="display: none;">
+                            <h3>Assessment Complete</h3>
+                            <p id="scoreText"></p>
+                            <button class="btn btn--primary" onclick="restartQuiz()">Take Another Assessment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code Section -->
+        <section id="code" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Programming Challenges</h2>
+                    <p>Develop computational thinking skills and earn bonus points!</p>
+                </div>
+
+                <div class="coding-container">
+                    <div class="challenge-selector">
+                        <h3>Choose a Challenge Level</h3>
+                        <div class="challenge-grid">
+                            <button class="challenge-card" onclick="loadChallenge('basic')">
+                                <div class="challenge-header">
+                                    <span class="challenge-icon">🌱</span>
+                                    <h4>Basic Challenge</h4>
+                                </div>
+                                <p>Introduction to programming concepts</p>
+                                <div class="challenge-points">+15 points</div>
+                            </button>
+                            <button class="challenge-card" onclick="loadChallenge('loops')">
+                                <div class="challenge-header">
+                                    <span class="challenge-icon">🔄</span>
+                                    <h4>Loop Challenge</h4>
+                                </div>
+                                <p>Learn iteration and repetition</p>
+                                <div class="challenge-points">+25 points</div>
+                            </button>
+                            <button class="challenge-card" onclick="loadChallenge('functions')">
+                                <div class="challenge-header">
+                                    <span class="challenge-icon">⚡</span>
+                                    <h4>Function Challenge</h4>
+                                </div>
+                                <p>Master function creation and usage</p>
+                                <div class="challenge-points">+35 points</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="coding-workspace" id="codingWorkspace" style="display: none;">
+                        <div class="workspace-header">
+                            <h3 id="challengeTitle">Challenge Title</h3>
+                            <p id="challengeDescription">Challenge description will appear here...</p>
+                        </div>
+
+                        <div class="workspace-grid">
+                            <div class="code-section">
+                                <div class="code-header">
+                                    <label for="codeInput" class="form-label">Your Solution</label>
+                                    <div class="code-actions">
+                                        <button class="btn btn--sm btn--primary" onclick="runCode()">Run Code</button>
+                                        <button class="btn btn--sm btn--outline" onclick="resetCode()">Reset</button>
+                                    </div>
+                                </div>
+                                <textarea id="codeInput" class="code-textarea" rows="12" placeholder="Write your code here..."></textarea>
+                            </div>
+
+                            <div class="example-section">
+                                <div class="example-header">
+                                    <h4>Example</h4>
+                                </div>
+                                <pre id="challengeExample" class="example-code"></pre>
+                                
+                                <div class="output-header">
+                                    <h4>Output</h4>
+                                </div>
+                                <pre id="codeOutput" class="output-box">Your output will appear here...</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section id="progress" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Learning Analytics</h2>
+                    <p>Track your progress and achievements across STEM subjects.</p>
+                </div>
+
+                <div class="progress-grid">
+                    <div class="progress-card chart-card">
+                        <h3>Subject Performance</h3>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="activityChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="progress-card">
+                        <h3>Recent Achievements</h3>
+                        <div class="achievements-list" id="achievementsList">
+                            <div class="achievement-item">
+                                <div class="achievement-icon">🌟</div>
+                                <div class="achievement-content">
+                                    <h4>Welcome to EduShiksha!</h4>
+                                    <p>Started your STEM learning journey</p>
+                                    <span class="achievement-date">Today</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-card">
+                        <h3>Points Summary</h3>
+                        <div class="points-breakdown">
+                            <div class="points-item">
+                                <span class="points-subject">Science</span>
+                                <span class="points-earned" id="progressSciencePoints">0</span>
+                            </div>
+                            <div class="points-item">
+                                <span class="points-subject">Technology</span>
+                                <span class="points-earned" id="progressTechnologyPoints">0</span>
+                            </div>
+                            <div class="points-item">
+                                <span class="points-subject">Engineering</span>
+                                <span class="points-earned" id="progressEngineeringPoints">0</span>
+                            </div>
+                            <div class="points-item">
+                                <span class="points-subject">Mathematics</span>
+                                <span class="points-earned" id="progressMathematicsPoints">0</span>
+                            </div>
+                            <div class="points-item total">
+                                <span class="points-subject">Total Points</span>
+                                <span class="points-earned" id="progressTotalPoints">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Congratulations!</h3>
+            </div>
+            <div class="modal-body">
+                <p id="successMessage">Great work on your progress!</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn--primary" onclick="closeModal()">Continue Learning</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
